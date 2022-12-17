@@ -39,26 +39,27 @@
                     <h4 class="card-header">Crear Tarea</h4>
                     <div class="card-body">
                       <!-- Formulario para agregar tareas -->
-                      <form action="">
+                      <form id="task-form">
                         <div class="form-floating mb-3">
                           <input
                             type="text"
                             class="form-control"
                             placeholder="Ingrese el titulo"
+                            id="title"
                           />
-                          <label for="formId1">Titulo</label>
+                          <label for="title">Titulo</label>
                         </div>
                         <div class="form-floating mb-3">
                           <textarea
                             class="form-control h-100"
                             rows="12"
                             placeholder="Ingrese la descripcion"
-                            id="descripciontask"
+                            id="content"
                           ></textarea>
-                          <label for="descripciontask">Descripcion</label>
+                          <label for="content">Descripcion</label>
                         </div>
                         <div class="d-grid gap-2 mx-auto">
-                          <button type="submit" class="btn btn-primary w-100">
+                          <button type="submit" class="btn btn-primary">
                             Crear
                           </button>
                         </div>
@@ -68,7 +69,7 @@
                 </div>
                 <!-- Lista de tareas -->
                 <div class="col-xl-9 col-sm-11">
-                  <div class="accordion" id="taks">
+                  <div class="accordion" id="taks-accordion">
                     <div class="accordion-item">
                       <h2 class="accordion-header">
                         <button
@@ -136,12 +137,12 @@
                     <div class="card-body">
                       <img src="./images/success-circle.svg" class="img-fluid d-block mx-auto" alt="">
                       <p class="card-text text-center fs-5 fw-bold mb-1"> Tareas completadas</p>
-                      <p class="fs-4 text-center mb-1">0</p>
+                      <p class="fs-4 text-center mb-1" id="task-complete">0</p>
                       <div class="btn-group d-flex justify-content-center px-md-5 mb-1">
-                        <button type="button" class="btn btn-dark fs-6">+</button>
-                        <button type="button" class="btn btn-dark fs-6">-</button>
+                        <button type="button" class="btn btn-dark fs-6" id="task-up">+</button>
+                        <button type="button" class="btn btn-dark fs-6" id="task-down">-</button>
                       </div>
-                      <button type="button" class="btn btn-warning d-grid mx-auto">Restablecer</button>
+                      <button type="button" class="btn btn-warning d-grid mx-auto" id="task-reset">Restablecer</button>
                     </div>
                   </div>
                 </div>
@@ -150,7 +151,7 @@
                     <div class="card-body">
                       <img src="./images/baseline-pending-actions.svg" class="img-fluid d-block mx-auto" alt="">
                       <p class="card-text text-center fs-5 fw-bold mb-1"> Tareas pendientes</p>
-                      <p class="fs-4 text-center mb-1">0</p>
+                      <p class="fs-4 text-center mb-1" id="task-pending">0</p>
                   </div>
                 </div>
                 </div>
@@ -175,5 +176,6 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
     ></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>
