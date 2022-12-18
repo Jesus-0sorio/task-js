@@ -9,7 +9,7 @@ export class UI {
             class="accordion-button collapsed"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#${task.title + task.id.slice(0,6)}"
+            data-bs-target="#${task.title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).split(" ").join("") + task.id.slice(0,6)}"
             aria-expanded="false"
             aria-controls="${task.id.slice(0,8)}"
         >
@@ -17,9 +17,9 @@ export class UI {
             </button>
         </h2>
         <div
-        id="${task.title + task.id.slice(0,6)}"
+        id="${task.title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).split(" ").join("") + task.id.slice(0,6)}"
         class="accordion-collapse collapse"
-        aria-labelledby=${task.title + task.id.slice(0,6)}"
+        aria-labelledby=${task.title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).split(" ").join("") + task.id.slice(0,6)}"
         data-bs-parent="#accordionFlushExample"
         >
         <div class="accordion-body">
