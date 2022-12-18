@@ -90,31 +90,7 @@
                         Tareas completadas
                       </p>
                       <p class="fs-4 text-center mb-1" id="task-complete">0</p>
-                      <div
-                        class="btn-group d-flex justify-content-center px-md-5 mb-1"
-                      >
-                        <button
-                          type="button"
-                          class="btn btn-dark fs-6"
-                          id="task-up"
-                        >
-                          +
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-dark fs-6"
-                          id="task-down"
-                        >
-                          -
-                        </button>
-                      </div>
-                      <button
-                        type="button"
-                        class="btn btn-warning d-grid mx-auto"
-                        id="task-reset"
-                      >
-                        Restablecer
-                      </button>
+                      
                     </div>
                   </div>
                 </div>
@@ -138,6 +114,18 @@
           </div>
         </div>
       </div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="createTask" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="./images/task-add.svg" class="rounded me-2" alt="...">
+      <strong class="me-auto">App Tareas</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Tarea creada exitosamente. 
+    </div>
+  </div>
+</div>
     </main>
     <footer>
       <!-- place footer here -->
