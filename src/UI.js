@@ -1,25 +1,42 @@
 export class UI {
-    addTask(task) {
-        const listTask = document.getElementById("task-accordion");
-        const element = document.createElement("div");
-        element.innerHTML = `
+  addTask(task) {
+    const listTask = document.getElementById("task-accordion");
+    const element = document.createElement("div");
+    element.innerHTML = `
         <div class="accordion-item" id="${task.id}">
         <h2 class="accordion-header">
         <button
             class="accordion-button collapsed"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#${task.title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).split(" ").join("") + task.id.slice(0,6)}"
+            data-bs-target="#${
+              task.title
+                .replace(/(^\w{1})|(\s+\w{1})/g, (letter) =>
+                  letter.toUpperCase()
+                )
+                .split(" ")
+                .join("") + task.id.slice(0, 6)
+            }"
             aria-expanded="false"
-            aria-controls="${task.id.slice(0,8)}"
+            aria-controls="${task.id.slice(0, 8)}"
         >
             ${task.title}
             </button>
         </h2>
         <div
-        id="${task.title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).split(" ").join("") + task.id.slice(0,6)}"
+        id="${
+          task.title
+            .replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
+            .split(" ")
+            .join("") + task.id.slice(0, 6)
+        }"
         class="accordion-collapse collapse"
-        aria-labelledby=${task.title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).split(" ").join("") + task.id.slice(0,6)}"
+        aria-labelledby=${
+          task.title
+            .replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
+            .split(" ")
+            .join("") + task.id.slice(0, 6)
+        }"
         data-bs-parent="#accordionFlushExample"
         >
         <div class="accordion-body">
@@ -59,28 +76,38 @@ export class UI {
         </div>
         </div>        
             `;
-        listTask.appendChild(element)
-        this.pendingAsk();
+    listTask.appendChild(element);
+    this.pendingAsk();
 
-        const toast = new bootstrap.Toast(document.getElementById("createTask"))
-        toast.show()
-    }
+    const toast = new bootstrap.Toast(document.getElementById("createTask"));
+    toast.show();
+  }
 
-    resetForm(){
-        document.getElementById("task-form").reset();
-    }
+  resetForm() {
+    document.getElementById("task-form").reset();
+  }
 
-    pendingAsk(){
-        document.getElementById("task-pending").innerText = document.getElementsByClassName("accordion-item").length;
-    }
+  pendingAsk() {
+    document.getElementById("task-pending").innerText =
+      document.getElementsByClassName("accordion-item").length;
+  }
 
-    completeTask(element, complete){
-        document.getElementById("task-complete").innerText = complete;
-        this.deleteTask(element);
-    }
+  completeTask(complete) {
+    document.getElementById("task-complete").innerText = complete;
+  }
 
-    deleteTask(element){
-        document.getElementById(element.id).remove();
-        this.pendingAsk();
-    }
+  deleteTask(element) {
+    document.getElementById(element.id).remove();
+    this.pendingAsk();
+  }
+
+  local(key, element) {
+    localStorage.setItem(key, JSON.stringify(element));
+  }
+
+  changeData(taskDB, element) {
+    taskDB = taskDB.filter((e) => e.id !== element.id);
+    this.local("task", taskDB);
+    return taskDB;
+  }
 }
