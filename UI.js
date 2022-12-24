@@ -59,7 +59,7 @@ export class UI {
                 Completar
                 </button>
             </div>
-            <div class="col-sm-auto ps-1">
+            <div class="col-sm-auto ps-md-1 pt-md-0 pt-1">
                 <button
                 type="button"
                 class="btn btn-danger"
