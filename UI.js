@@ -48,8 +48,8 @@ export class UI {
         </div>
         <div class="col-sm-auto">
             <!-- Botones -->
-            <div class="row justify-content-end pt-1">
-            <div class="col-sm-auto pe-1">
+            <div class="row justify-content-md-end justify-content-start pt-1">
+            <div class="col-md-auto col-5 pe-1">
                 <button
                 type="button"
                 class="btn btn-success"
@@ -59,7 +59,7 @@ export class UI {
                 Completar
                 </button>
             </div>
-            <div class="col-sm-auto ps-md-1 pt-md-0 pt-1">
+            <div class="col-md-auto col-5 ps-md-1">
                 <button
                 type="button"
                 class="btn btn-danger"
