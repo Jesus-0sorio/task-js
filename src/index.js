@@ -18,9 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
 document.getElementById("task-form").addEventListener("submit", (e) => {
   const title = document.getElementById("title").value;
   const content = document.getElementById("content").value;
+  e.preventDefault();
+  if (title === "" || content === "")
+    return alert("El titulo y la descripcion no pueden estar vacios");
   const task = new Task(title, content);
   const ui = new UI();
-  e.preventDefault();
   ui.addTask(task);
   taskDB.push(task);
   ui.local("task", taskDB);
